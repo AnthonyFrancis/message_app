@@ -1,0 +1,161 @@
+<!-- <div class="flex justify-center items-center min-h-screen min-w-full">
+    <div class="flex relative">
+        <div class="w-40 h-36 bg-yellow-400 transform transition-all -skew-x-12 skew-y-12 absolute -top-20 -left-20 rounded-lg">
+
+        </div>
+        <div class="w-40 h-36 bg-green-400 transform transition-all skew-x-12 -skew-y-12 absolute -top-20 -left-20 rounded-lg">
+        </div>
+        <div class="w-40 h-36 bg-white flex justify-center items-center border-2 font-extrabold border-black text-black text-6xl transform transition-all absolute -top-20 -left-20 rounded-lg">
+            <p class="font-mono">PDM</p>
+        </div>
+    </div>
+</div> -->
+<div class="bg-grayDark" x-data="{ atTop: true }" x-on:scroll.window="atTop =( window.pageYOffset > 10) ? false : true ">
+    <!-- Navbar -->
+    <div class="w-full text-gray-700 bg-white h-16 fixed top-0 animated z-40 border" x-bind:class='{ "bg-black shadow-lg": !atTop }'>
+        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-7 mx-auto md:items-center md:justify-between md:flex-row">
+            <div class="py-3 px-2 flex flex-row items-center justify-between">
+                <a href="/" class="tracking-widest rounded-lg focus:outline-none focus:shadow-outline">
+                    <!--        <svg class="w-8 h-8 text-purple-600" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+          <title>TailwindCSS</title>
+          <path fill="currentColor" d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"></path>
+        </svg> -->
+                    <img class="h-10" src="/assets/logos/logo-white.png" alt="" width="auto" />
+                </a>
+                <div class="flex-1 flex justify-center px-2 lg:ml-2 lg:justify-end hidden lg:block">
+                    <div class="max-w-lg w-full lg:max-w-xs">
+                        <form accept-charset="UTF-8" action="/search" method="get">
+                            <label class="sr-only" for="search">Search</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-gray-400" viewbox="0 0 20 20">
+                                        <path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <input
+                                    class="block w-full pl-10 pr-40 py-2 border rounded-md leading-5 bg-white placeholder-gray-600 focus:outline-none focus:bg-white sm:text-sm transition duration-150 ease-in-out"
+                                    id="q"
+                                    name="q"
+                                    placeholder="Search"
+                                    type="text"
+                                />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Button Mobile Nav -->
+
+                <a class="flex justify-center items-center bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 rounded-md font-bold md:hidden">
+                    <span>Create Post</span>
+                </a>
+                <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                    <span class="text-lg text-primary">
+                        <i class="fas fa-bell"></i>
+                    </span>
+                </button>
+                <!-- End Button Mobile Nav -->
+            </div>
+            <!-- Navbar Mobile -->
+            <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 hidden bg-white shadow-lg rounded-b">
+                <a class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                    Notifikasi 1
+                </a>
+                <a class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                    Notifikasi 1
+                </a>
+                <a class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                    Notifikasi 1
+                </a>
+                <a class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                    Notifikasi 1
+                </a>
+            </nav>
+            <!-- End Navbar Mobile -->
+
+            <nav class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row bg-white">
+                <% if user_signed_in? %>
+                    <a class="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-primary rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                        <i class="fas fa-envelope mt-1"></i>
+                    </a>
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex flex-row items-center w-full px-3 py-1 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:w-auto md:mt-0 md:ml-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        >
+                            <span class="text-lg text-primary mt-1"><i class="fas fa-bell"></i></span>
+                        </button>
+                        <div
+                            x-show="open"
+                            x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95"
+                            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
+                        >
+                            <div class="px-2 py-2 bg-white rounded-md shadow">
+                                <a
+                                    class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                    href="#"
+                                >
+                                    Notifikasi 1
+                                </a>
+                                <a
+                                    class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                    href="#"
+                                >
+                                    Notifikasi #2
+                                </a>
+                                <a
+                                    class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                    href="#"
+                                >
+                                    Notifikasi #3
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex flex-row items-center w-full px-1 py-1 mt-2 text-sm font-semibold text-left bg-transparent rounded-full md:w-auto md:mt-0 md:ml-2 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        >
+                            <img src="<%#= current_user.profile_image %>" class="w-auto h-8 rounded-full" alt="" />
+                        </button>
+
+                        <div
+                            x-show="open"
+                            x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95"
+                            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
+                        >
+                            <div class="px-2 py-2 bg-white rounded-md shadow">
+                                <a
+                                    class="block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                    href="forum.html"
+                                >
+                                    Dashboard
+                                </a>
+
+                                <%= link_to edit_user_registration_path, class: "block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" do %>
+                                    Settings
+                                <% end %>
+                                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "block px-4 py-2 mt-2 bg-transparent rounded-lg text-sm font-semibold md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" %>
+                            </div>
+                        </div>
+                    </div>
+                <% else %>
+                  <%= link_to "Login", new_user_session_path, class: "justify-center items-center mr-4 text-blue-700 hover:text-blue-700 px-4 py-2 hover:bg-gray-100 rounded-md font-bold" %>
+                  <%= link_to "Create account", new_user_registration_path, class: "justify-center items-center mr-4 bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 rounded-md font-bold" %>
+                <% end  %>
+               
+            </nav>
+        </div>
+    </div>
+    <!-- End Navbar -->
+</div>
