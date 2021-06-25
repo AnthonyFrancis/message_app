@@ -13,6 +13,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/new
   def new
     @conversation = Conversation.new
+    @guest_name = session[:guest_name]
   end
 
   # GET /conversations/1/edit
