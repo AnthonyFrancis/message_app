@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
 
   # GET /conversations/new
   def new
-    @conversation = Conversation.new
+    @conversation = current_user.conversations.build
     @guest_name = session[:guest_name]
   end
 
@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
 
   # POST /conversations or /conversations.json
   def create
-    @conversation = Conversation.new(conversation_params)
+    @conversation = current_user.conversations.build(conversation_params)
 
     respond_to do |format|
       if @conversation.save
