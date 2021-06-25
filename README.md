@@ -34,5 +34,4 @@ Comes Complete With
 * Font Awesome Pro
 * Devise
 *
-* ...
-# project_kickoff
+* ...# message_app
