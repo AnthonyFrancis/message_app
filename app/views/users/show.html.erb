@@ -17,25 +17,26 @@
     </div>
     <% if @conversations.present? %>
       <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
-        <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col space-y-2">
-          <div class="p-6 flex flex-col items-start">
+        <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col">
+          <div class="px-6 pt-6 flex flex-col items-start">
             <div class="font-semibold text-md">Continue the conversation</div>
           </div>
 
           
-          <% @conversations.each do |conversation| %>
-            <%= link_to conversation do %>
-              <div class="border-t px-6 py-4 hover:bg-gray-50 cursor-pointer">
-                <div class="m-4 text-sm text-gray-700 hover:text-blue-300">See all your conversations</div>
-              </div>
-            <% end %>
+          <% @conversations.first(3).each do |conversation| %>
+            <div class="border-b px-6 py-4 hover:bg-gray-50 cursor-pointer">
+              <div class="m-4 text-sm text-gray-700 hover:text-blue-300">See all your conversations</div>
+            </div>
           <% end %>
+            <div class="px-6 py-1 cursor-pointer">
+              <div class="m-4 text-sm text-purple-500 hover:text-purple-500">See all your conversations</div>
+            </div>
         </div>
       </div>
     <% end %>
 
     <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
-      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col space-y-2">
+      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col">
         <div class="p-6 flex flex-col items-start">
           <div class="font-semibold text-sm">Start a conversation</div>
 
@@ -59,7 +60,7 @@
     </div>
 
     <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
-      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col space-y-2">
+      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col">
         <div class="p-6 flex flex-col items-start">
           <div class="font-semibold text-sm mb-3">The Ultimate Guide </div>
           <img class="rounded-lg shadow-lg" src="http://www.3forty.media/ruki/wp-content/uploads/2020/06/meditation-yoga-1024x682.jpg">
@@ -72,7 +73,7 @@
     </div>
 
     <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
-      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col space-y-2">
+      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col">
         <div class="pt-6 px-6 flex flex-col items-start">
           <div class="font-semibold text-lg">The Ultimate Guide </div>
         </div>   
