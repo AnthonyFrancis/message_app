@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: %i[ show edit update destroy ]
+  before_action :set_inbox, only: [:show, :edit, :update, :create, :new, :destroy]
 
   # GET /conversations or /conversations.json
   def index
@@ -12,7 +13,7 @@ class ConversationsController < ApplicationController
 
   # GET /conversations/new
   def new
-    @conversation = current_user.conversations.build
+    @conversation = @inbox.conversations.new
     @guest_name = session[:guest_name]
   end
 
@@ -22,11 +23,7 @@ class ConversationsController < ApplicationController
 
   # POST /conversations or /conversations.json
   def create
-    # @conversation = current_user.conversations.build(conversation_params)
-    @user = User.find(@user)
-    @conversation.user_id = current_user.id
-    @conversation.sender_id = current_user.id
-    @conversation.recipient_id = User.find(params[:id])
+    @conversation = @inbox.conversations.build(conversation_params)
 
     respond_to do |format|
       if @conversation.save
@@ -67,8 +64,12 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.find(params[:id])
     end
 
+    def set_inbox
+      @inbox = Inbox.find(params[:inbox_id])
+    end
+
     # Only allow a list of trusted parameters through.
     def conversation_params
-      params.fetch(:conversation, {})
+      params.require(:conversation).permit(:inbox_id )
     end
 end

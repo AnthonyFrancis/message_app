@@ -1,3 +1,3 @@
 class Conversation < ApplicationRecord
-  belongs_to :inboxes
+  belongs_to :inbox
 end

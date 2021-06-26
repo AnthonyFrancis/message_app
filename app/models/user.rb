@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :inbox
+  has_one :inbox, dependent: :destroy
   after_create :create_inbox
 
   def create_inbox

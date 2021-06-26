@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
 
   resources :inboxes, :path => "inbox" do
-    resources :conversations do
-    
-    end    
+    resources :conversations
   end
-
-
-  
 
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users, only: [:show], as: "profile", :path => ""

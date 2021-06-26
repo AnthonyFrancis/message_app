@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_115201) do
+ActiveRecord::Schema.define(version: 2021_06_26_123034) do
 
   create_table "conversations", force: :cascade do |t|
-    t.integer "inboxes_id", null: false
+    t.integer "inbox_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["inboxes_id"], name: "index_conversations_on_inboxes_id"
+    t.index ["inbox_id"], name: "index_conversations_on_inbox_id"
   end
 
   create_table "inboxes", force: :cascade do |t|
@@ -44,6 +44,6 @@ ActiveRecord::Schema.define(version: 2021_06_26_115201) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
-  add_foreign_key "conversations", "inboxes", column: "inboxes_id"
+  add_foreign_key "conversations", "inboxes"
   add_foreign_key "inboxes", "users"
 end
