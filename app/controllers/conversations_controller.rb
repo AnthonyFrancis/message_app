@@ -29,6 +29,9 @@ class ConversationsController < ApplicationController
       User.find(session[:guest_user_id] ||= create_guest_user.id)
     end
     @conversation = @inbox.conversations.build(conversation_params)
+    if(current_user.guest)
+      current_user.save(:validate => false)
+    end
     @conversation.user_id = current_user.id
     @guest_name = current_user.full_name
 
@@ -78,6 +81,7 @@ class ConversationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def conversation_params
-      params.fetch(:conversation, {})
+      params.fetch(:conversation, {}).permit(:inbox_id, :content, :name, :first_name )
+      # params.require(:conversation)
     end
 end

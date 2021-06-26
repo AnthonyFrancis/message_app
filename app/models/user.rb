@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :inbox, dependent: :destroy
   after_create :create_inbox
+  has_many :conversations, dependent: :destroy
 
   def create_inbox
     if self.guest == false
