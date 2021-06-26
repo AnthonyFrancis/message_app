@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.friendly.find(params[:id])
+
+		@conversation = @user.inbox.conversations.new
 	 #    # @conversations = Conversation.includes(:recipient, :messages).find(session[:conversations])
 		# @conversation = current_user.conversations.build
 

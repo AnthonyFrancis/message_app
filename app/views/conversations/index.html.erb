@@ -12,9 +12,9 @@
   <tbody>
     <% @conversations.each do |conversation| %>
       <tr>
-        <td><%= link_to 'Show', conversation %></td>
-        <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
-        <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', conversation.inbox %></td>
+        <td><%= link_to 'Edit', edit_inbox_conversation_path(conversation.inbox, conversation) %></td>
+        <td><%= link_to 'Destroy', conversation.inbox, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,99 +1,17 @@
 <%#= render partial: "shared/navbar" %>
 
 <%= content_for :primary_content do %>
-	<ul>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 bg-indigo-600 text-white">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md">23m ago</p>
-          </a>
-          <div class="text-md">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-        <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-          <a href="#" class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-            <p class="text-md text-gray-400">23m ago</p>
-          </a>
-          <div class="text-md italic text-gray-400">You have been invited!</div>
-        </li>
-      </ul>
+  <% @conversations.each do |conversation| %>
+  	<ul>
+      <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
+        <a href="#" class="flex justify-between items-center">
+          <h3 class="text-lg font-semibold"><%= link_to 'Show', conversation.inbox %></h3>
+          <p class="text-md text-gray-400">23m ago <%= link_to 'Edit', edit_inbox_conversation_path(conversation.inbox, conversation) %></p>
+        </a>
+        <div class="text-md italic text-gray-400">You have been invited! <%= link_to 'Destroy', conversation.inbox, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </li>    
+    </ul>
+  <% end %>
 <% end %>
 
 <%= render 'basic_layout' %>

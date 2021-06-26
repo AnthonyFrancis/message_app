@@ -8,6 +8,7 @@ class InboxesController < ApplicationController
 
   # GET /inboxes/1 or /inboxes/1.json
   def show
+    @conversations = Conversation.all
   end
 
   # GET /inboxes/new
