@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inboxes, :path => "inbox"
   resources :conversations do
     resources :messages
   end

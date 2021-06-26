@@ -4,8 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :messages
-  has_many :conversations
+  has_one :inbox
+  after_create :create_inbox
+
+  def create_inbox
+    if self.guest == false
+      self.build_inbox.save(validate: false)
+    end 
+  end
 
   extend FriendlyId
   friendly_id :username, use: :slugged

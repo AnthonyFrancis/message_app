@@ -22,7 +22,11 @@ class ConversationsController < ApplicationController
 
   # POST /conversations or /conversations.json
   def create
-    @conversation = current_user.conversations.build(conversation_params)
+    # @conversation = current_user.conversations.build(conversation_params)
+    @user = User.find(@user)
+    @conversation.user_id = current_user.id
+    @conversation.sender_id = current_user.id
+    @conversation.recipient_id = User.find(params[:id])
 
     respond_to do |format|
       if @conversation.save

@@ -1,1 +1,17 @@
 <%= render partial: "shared/navbar" %>
+
+<%= content_for :primary_content do %>
+	<ul class="mt-20">
+		<li>Leads</li>
+		<li>
+		<% if user_signed_in? %>
+		<%= link_to "Inbox",inbox_path(current_user.inbox.id) %></li>
+
+		<% end %>
+		<li>Links</li>
+		<li>Bots</li>
+		<li>Reports</li>
+	</ul>
+<% end %>
+
+<%= render 'basic_layout' %>
