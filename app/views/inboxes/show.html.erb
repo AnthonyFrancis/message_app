@@ -2,15 +2,21 @@
 
 <%= content_for :primary_content do %>
   <% @conversations.each do |conversation| %>
-  	<ul>
-      <li class="py-5 border-b px-3 transition hover:bg-indigo-100">
-        <a href="#" class="flex justify-between items-center">
-          <h3 class="text-lg font-semibold"><%= link_to 'Show', conversation.inbox %></h3>
-          <p class="text-md text-gray-400">23m ago <%= link_to 'Edit', edit_inbox_conversation_path(conversation.inbox, conversation) %></p>
-        </a>
-        <div class="text-md italic text-gray-400">You have been invited! <%= link_to 'Destroy', conversation.inbox, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-      </li>    
+
+    <%= link_to inbox_conversation_path(conversation.inbox, conversation), class: ["flex border-b flex-row items-center py-4 px-3 text-gray-700 hover:bg-gray-600 hover:bg-opacity-25 hover:text-gray-700", ("bg-indigo-100" if request.path == inbox_conversation_path(conversation.inbox, conversation)) ] do %>
+      <ul>
+      <li class="py-5 transition"> 
+        <div class="flex items-center">
+          <div class="text-lg font-semibold">Akhil Gautam</div>
+          <p class="text-md text-gray-400">23m ago</p>
+        </div>
+        <div class="text-md italic text-gray-400">You have been invited!</div>
+      </li>
     </ul>
+    <% end %>
+
+    <%#= link_to 'Edit', edit_inbox_conversation_path(conversation.inbox, conversation) %>
+    <%#= link_to 'Destroy', conversation.inbox, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
 

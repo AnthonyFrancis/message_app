@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
 
   # GET /conversations/1 or /conversations/1.json
   def show
+    @conversations = Conversation.all
   end
 
   # GET /conversations/new
