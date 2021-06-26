@@ -1,4 +1,4 @@
-<%#= render partial: "shared/navbar" %>
+<%= render partial: "shared/navbar" %>
 
 <%= content_for :primary_content do %>
   <% @conversations.each do |conversation| %>
@@ -15,8 +15,8 @@
     </ul>
     <% end %>
 
-    <%#= link_to 'Edit', edit_inbox_conversation_path(conversation.inbox, conversation) %>
-    <%#= link_to 'Destroy', conversation.inbox, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_inbox_conversation_path(conversation.inbox, conversation) %>
+    <%= link_to 'Destroy', inbox_conversation_path(conversation.inbox, conversation), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
 

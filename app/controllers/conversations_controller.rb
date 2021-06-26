@@ -24,11 +24,18 @@ class ConversationsController < ApplicationController
 
   # POST /conversations or /conversations.json
   def create
+    # @conversation = @inbox.conversations.build(conversation_params)
+    if(session[:guest_user_id].blank? && current_user.blank?)
+      User.find(session[:guest_user_id] ||= create_guest_user.id)
+    end
     @conversation = @inbox.conversations.build(conversation_params)
+    @conversation.user_id = current_user.id
+    @guest_name = current_user.full_name
 
     respond_to do |format|
       if @conversation.save
-        format.html { redirect_to @conversation.inbox, notice: "Conversation was successfully created." }
+        # format.html { redirect_to @inbox, notice: "Conversation was successfully created." }
+        format.html { redirect_back fallback_location: '/', notice: "Conversation was successfully created." }
         format.json { render :show, status: :created, location: @conversation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -54,7 +61,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation.destroy
     respond_to do |format|
-      format.html { redirect_to conversations_url, notice: "Conversation was successfully destroyed." }
+      format.html { redirect_back fallback_location: '/', notice: "Conversation was successfully destroyed." }
       format.json { head :no_content }
     end
   end

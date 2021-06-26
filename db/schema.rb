@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_123034) do
+ActiveRecord::Schema.define(version: 2021_06_26_152702) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "inbox_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["inbox_id"], name: "index_conversations_on_inbox_id"
   end
 
   create_table "inboxes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.index ["user_id"], name: "index_inboxes_on_user_id"
   end
 
