@@ -29,6 +29,8 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 gem 'friendly_id', '~> 5.4'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'mini_magick', '~> 4.9', '>= 4.9.5'
+gem 'figaro'
+gem 'fog-aws'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
