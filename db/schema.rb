@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_152702) do
+ActiveRecord::Schema.define(version: 2021_06_27_134031) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "inbox_id", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_152702) do
     t.string "slug"
     t.boolean "guest", default: false
     t.string "full_name"
+    t.string "user_avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

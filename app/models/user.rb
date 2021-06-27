@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :user_avatar, UserAvatarUploader
+
   has_one :inbox, dependent: :destroy
   after_create :create_inbox
   has_many :conversations, dependent: :destroy
