@@ -18,9 +18,9 @@
         <td><%= message.body %></td>
         <td><%= message.conversation_id %></td>
         <td><%= message.user_id %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', message %></td>
+        <td><%#= link_to 'Edit', edit_message_path(message) %></td>
+        <td><%#= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Message', new_message_path %>
+<%= link_to 'New Message', new_inbox_conversation_message_path %>

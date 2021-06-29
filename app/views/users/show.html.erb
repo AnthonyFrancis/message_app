@@ -64,8 +64,10 @@
               </div>
             </div>
           </div>
-          <%= render 'conversations/form', conversation: @conversation, user: @user %>
-          <%#= link_to "create conversation", new_inbox_conversation_path(@user.inbox) %>
+          <%#= render 'conversations/form', conversation: @conversation, user: @user %>
+
+          <%#= link_to 'New Message', new_inbox_conversation_message_path(@user.inbox.conversation) %>
+          <%= link_to "create conversation", new_inbox_conversation_path(@user.inbox) %>
         </div>
       </div>
     </div>
