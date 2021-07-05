@@ -10,12 +10,13 @@ class ConversationsController < ApplicationController
   # GET /conversations/1 or /conversations/1.json
   def show
     @conversations = Conversation.all
+    @message = @conversation.messages.new
   end
 
   # GET /conversations/new
   def new
     @conversation = @inbox.conversations.new
-    1.times { @conversation.messages.build }
+    @conversation.messages.new
     @guest_name = session[:guest_name]
   end
 

@@ -12,10 +12,8 @@
   <% end %>
 
   <%= form.fields_for :messages do |builder| %>
-    <%= builder.label :body, "Message" %><br>
     <%= builder.text_area :body %>
     <%= builder.text_field :user_id, value: current_user.id, type: "hidden" %>
-    <%#= builder.text_field :conversation_id, value: current_user.id, type: "hidden" %>
   <% end %>
 
   <div class="actions">

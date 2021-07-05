@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
-  before_action :set_conversation, only: %i[ index show edit update destroy ]
+  before_action :set_conversation, only: %i[ index show edit new update destroy ]
 
   # GET /messages or /messages.json
   def index
@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = @inbox.conversation.messages.new
+    @message = @conversation.messages.new
   end
 
   # GET /messages/1/edit
@@ -23,7 +23,9 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @message = @inbox.conversation.messages.new(message_params)
+    @conversation = @inbox.conversation
+    @message = @conversation.messages.new(message_params)
+    @message.user = current_user
 
     respond_to do |format|
       if @message.save
