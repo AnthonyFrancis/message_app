@@ -67,7 +67,10 @@
           <%#= render 'conversations/form', conversation: @conversation, user: @user %>
 
           <%#= link_to 'New Message', new_inbox_conversation_message_path(@user.inbox.conversation) %>
-          <%= link_to "create conversation", new_inbox_conversation_path(@user.inbox) %>
+          <%= link_to new_inbox_conversation_path(@user.inbox), class: "bg-purple-700 p-3 rounded-full text-white" do %>
+            <i class="far fa-paper-plane"></i>
+            Send me a message
+          <% end %>
         </div>
       </div>
     </div>

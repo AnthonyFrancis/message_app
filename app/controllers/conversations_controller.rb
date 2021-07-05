@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/new
   def new
     @conversation = @inbox.conversations.new
+    1.times { @conversation.messages.build }
     @guest_name = session[:guest_name]
   end
 
@@ -81,7 +82,7 @@ class ConversationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def conversation_params
-      params.fetch(:conversation, {}).permit(:inbox_id, :content, :name, :first_name )
+      params.fetch(:conversation, {}).permit(:inbox_id, :user_id, { messages_attributes: [:id, :body, :conversation_id, :user_id,  :_destroy] } )
       # params.require(:conversation)
     end
 end

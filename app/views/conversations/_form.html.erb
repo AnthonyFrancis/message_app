@@ -11,9 +11,15 @@
     </div>
   <% end %>
 
+  <%= form.fields_for :messages do |builder| %>
+    <%= builder.label :body, "Message" %><br>
+    <%= builder.text_area :body %>
+    <%= builder.text_field :user_id, value: current_user.id, type: "hidden" %>
+    <%#= builder.text_field :conversation_id, value: current_user.id, type: "hidden" %>
+  <% end %>
+
   <div class="actions">
     <%#= form.submit %>
-
     <%= button_tag( :class => "bg-purple-700 p-3 rounded-full focus:outline-none outline-none text-white text-sm flex flex-row space-x-3 gap-2 px-4") do %>
       <i class="far fa-paper-plane"></i>
       Send me a message
