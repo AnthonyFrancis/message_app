@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @conversation = @inbox.conversation
+    # @conversation = @inbox.conversation
     @message = @conversation.messages.new(message_params)
     @message.user = current_user
 

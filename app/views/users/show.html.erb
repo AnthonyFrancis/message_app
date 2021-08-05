@@ -9,7 +9,7 @@
       </div>
       <div class="mt-16">
         <h1 class="text-3xl text-center mb-2">
-          <%= @user.username %>
+          @<%= @user.username %>
         </h1>
         <p class="text-sm text-gray-300 text-center">
           <%= @user.bio %>
@@ -48,13 +48,13 @@
       </div>
     <% end %>
 
-    <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
-      <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col">
+    <div class="rounded m-4 z-10 shadow-md">
+      <div class="bg-white border border-t-0 rounded-lg rounded-b flex flex-col">
         <div class="p-6 flex flex-col items-start gap-3">
           <div class="font-semibold text-sm">Start a conversation</div>
           <div class="flex flex-row gap-3">
             <div class="flex flex-row -space-x-10">
-              <img class="w-16 h-16 rounded-full border-2 border-white" src="<%= @user.user_avatar %>" />
+              <img class="w-16 h-16 rounded-full border-2 border-white mr-2" src="<%= @user.user_avatar %>" />
               <!-- <img class="w-16 h-16 rounded-full border-2 border-white" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=facearea&w=256&h=256&facepad=2" />
               <img class="w-16 h-16 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=facearea&w=256&h=256&facepad=2" /> -->
             </div>
@@ -69,7 +69,7 @@
           <%#= render 'conversations/form', conversation: @conversation, user: @user %>
 
           <%#= link_to 'New Message', new_inbox_conversation_message_path(@user.inbox.conversation) %>
-          <%= link_to new_inbox_conversation_path(@user.inbox), class: "bg-purple-700 p-3 rounded-full text-white" do %>
+          <%= link_to new_inbox_conversation_path(@user.inbox), class: "bg-purple-700 p-3 rounded-full text-white mt-2" do %>
             <i class="far fa-paper-plane"></i>
             Send me a message
           <% end %>
@@ -77,11 +77,11 @@
       </div>
     </div>
 
-    <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
-      <div class="bg-white border border-t-0 rounded-t-none rounded-b p-6 flex flex-col space-y-2">
+    <div class="border-0 border-t-4 border-purple-500 rounded-lg m-4 z-10 shadow-md">
+      <div class="bg-white border border-t-0 rounded-lg rounded-b p-6 flex flex-col space-y-2">
         <div class="font-semibold text-sm">Find your answer now</div>
         <div class="flex flex-row">
-          <input type="text" placeholder="Search our articles" class="border flex-1 rounded-l p-2 text-sm shadow-inner outline-none bg-gray-50 focus:bg-white">
+          <input type="text" placeholder="Search my links" class="border flex-1 rounded-l p-2 text-sm shadow-inner outline-none bg-gray-50 focus:bg-white">
           <button type="button" class="bg-purple-700 p-2 rounded-r">
             <i class="fas fa-chevron-right text-white"></i>
           </button>
@@ -92,7 +92,7 @@
     <div class="border-0 border-t-4 border-purple-500 rounded m-4 z-10 shadow-md">
       <div class="bg-white border border-t-0 rounded-t-none rounded-b flex flex-col">
         <div class="p-6 flex flex-col items-start">
-          <div class="font-semibold text-sm mb-3">The Ultimate Guide </div>
+          <div class="font-semibold text-sm mb-3">Introduction to Self-care Coaching</div>
           <img class="rounded-lg shadow-lg" src="http://www.3forty.media/ruki/wp-content/uploads/2020/06/meditation-yoga-1024x682.jpg">
         </div>
         <div class="border-t px-6 py-4 hover:bg-gray-50 cursor-pointer">
